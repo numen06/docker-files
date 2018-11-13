@@ -93,7 +93,9 @@ cluster.name: es-test
 node.name: es-test000        
 #path.data: /home/asdev/elkdata
 #path.logs: /home/asdev/elklog
-network.host: 0.0.0.0  
+network.host: 0.0.0.0 
+#像主节点推送相应的IP信息
+#network.publish_host: 192.168.20.160
 http.port: 9200                    
 discovery.zen.minimum_master_nodes: 1 
 #discovery.zen.ping.unicast.hosts: ["192.168.40.5", "192.168.40.6"]
