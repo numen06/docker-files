@@ -1,0 +1,1 @@
+docker run --name=duic -itd -p 7777:7777 -v /opt/duic/config:/app/config zhudyos/duic
