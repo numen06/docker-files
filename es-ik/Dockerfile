@@ -7,3 +7,5 @@ RUN mv /usr/share/elasticsearch/plugins/elasticsearch /usr/share/elasticsearch/p
 RUN rm -rf /usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-5.6.8.zip
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "vm.max_map_count=655360" > /etc/sysctl.conf 
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' >/etc/timezone
