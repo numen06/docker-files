@@ -1,4 +1,6 @@
 
+
+docker pull registry.cn-shanghai.aliyuncs.com/numen/es-ik
 #在运行或启动elasticsearch容器前，先在宿主机上执行 
 sudo sysctl -w vm.max_map_count=262144;
 
