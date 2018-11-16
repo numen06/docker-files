@@ -30,6 +30,7 @@ mysql -uroot -pabc123
 
 #授权
 mysql> grant SHOW DATABASES,SELECT on *.* to 'slave'@'%' identified by 'abc123';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'slave'@'%' ;
 mysql> FLUSH PRIVILEGES;
 
 #挂载主机,file根据master的查询出来的信息为准
