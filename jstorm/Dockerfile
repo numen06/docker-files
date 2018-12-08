@@ -20,6 +20,8 @@ ENV PATH $PATH:$JSTORM_HOME/bin
 ENV JSTORM_DATA_DIR=/jdata \
     JSTORM_LOG_DIR=/jlogs
 
+RUN wget -c -O ${DISTRO_NAME}.zip https://github.com/alibaba/jstorm/releases/download/${JSTORM_VERSION}/jstorm-${JSTORM_VERSION}.zip
+
 # copy Storm, untar and clean up
 COPY docker-entrypoint.sh /
 COPY file/${DISTRO_NAME}.zip /
