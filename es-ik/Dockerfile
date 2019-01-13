@@ -5,7 +5,7 @@ RUN mkdir -p /usr/share/elasticsearch/plugins/
 RUN chmod -R 777 /usr/share/elasticsearch
 #RUN cd /usr/share/elasticsearch/plugins/ && wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.6.8/elasticsearch-analysis-ik-5.6.8.zip && unzip elasticsearch-analysis-ik-5.6.8.zip
 ADD elasticsearch-analysis-ik-5.6.8.zip /usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-5.6.8.zip
-RUN unzip /usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-5.6.8.zip
+RUN unzip -d /usr/share/elasticsearch/plugins /usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-5.6.8.zip
 RUN mv /usr/share/elasticsearch/plugins/elasticsearch /usr/share/elasticsearch/plugins/ik
 RUN rm -rf /usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-5.6.8.zip
 
