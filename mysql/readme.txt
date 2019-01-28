@@ -1,5 +1,5 @@
 #启动Master机
-docker run -itd -p 3306:3306 --restart always --name mysql-master -v /etc/localtime:/etc/localtime:ro -v /opt/mysql/conf/master/my.cnf:/etc/mysql/my.cnf -v /opt/mysql/data/master:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql:5.7
+docker run -itd -p 3306:3306 --restart always --privileged=true --name mysql-master -v /etc/localtime:/etc/localtime:ro -v /opt/mysql/conf/master/my.cnf:/etc/mysql/my.cnf -v /opt/mysql/data/master:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql:5.7
 
 #进入主机
 docker exec -it mysql-master /bin/bash
@@ -22,9 +22,9 @@ exit
 docker restart mysql-master
 
 #启动Slave机
-docker run -itd -p 3307:3306 --restart always --name mysql-slave -v /etc/localtime:/etc/localtime:ro -v /opt/mysql/conf/slave/my.cnf:/etc/mysql/my.cnf -v /opt/mysql/data/slave:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql:5.7
+docker run -itd -p 3307:3306 --restart always --privileged=true --name mysql-slave -v /etc/localtime:/etc/localtime:ro -v /opt/mysql/conf/slave/my.cnf:/etc/mysql/my.cnf -v /opt/mysql/data/slave:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql:5.7
 
-#进入主机
+#进入Slave机
 docker exec -it mysql-slave /bin/bash
 mysql -uroot -pabc123
 
@@ -34,7 +34,7 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'slave'@'%' ;
 mysql> FLUSH PRIVILEGES;
 
 #挂载主机,file根据master的查询出来的信息为准
-mysql> change master to master_host='192.168.20.223',master_user='slave',master_password='abc123',master_log_file='mysql-bin.000004',master_log_pos=501;
+mysql> change master to master_host='192.168.20.160',master_user='slave',master_password='abc123',master_log_file='mysql-bin.000001',master_log_pos=1;
 
 mysql> start slave;
 
@@ -44,3 +44,6 @@ mysql> show slave status\G
 exit
 exit
 docker restart mysql-slave
+
+#mysql配置文件授权避免被忽略
+chmod 644 /etc/mysql/my.cnf

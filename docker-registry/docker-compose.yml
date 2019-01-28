@@ -1,13 +1,14 @@
 registry:
   restart: always
+  container_name: docker-registry
   image: registry:2
-  ports:
-    - 5000:5000
+  privileged: true
+  network_mode: host
   environment:
-    REGISTRY_AUTH: htpasswd
-    REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
-    REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+    REGISTRY_HTTP_SECRET: password
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/docker.hubao-tech.com.pem
+    REGISTRY_HTTP_TLS_KEY: /certs/docker.hubao-tech.com.key
   volumes:
     - /opt/registry/data:/var/lib/registry
-    - /opt/registry/certs:/certs
+    - /opt/nginx/cert:/certs
     - /opt/registry/auth:/auth
