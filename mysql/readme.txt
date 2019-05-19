@@ -22,7 +22,7 @@ exit
 docker restart mysql-master
 
 #启动Slave机
-docker run -itd -p 3307:3306 --restart always --privileged=true --name mysql-slave -v /etc/localtime:/etc/localtime:ro -v /opt/mysql/conf/slave/my.cnf:/etc/mysql/my.cnf -v /opt/mysql/data/slave:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql:5.7
+docker run -itd -p 3306:3306 --restart always --privileged=true --name mysql-slave -v /etc/localtime:/etc/localtime:ro -v /opt/mysql/conf/slave/my.cnf:/etc/mysql/my.cnf -v /opt/mysql/data/slave:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql:5.7
 
 #进入Slave机
 docker exec -it mysql-slave /bin/bash
