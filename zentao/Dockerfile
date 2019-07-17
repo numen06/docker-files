@@ -1,10 +1,9 @@
-FROM ubuntu:16.0
+FROM ubuntu:16.04
 MAINTAINER yidong <yidong@cnezsoft.com>
 
 RUN apt-get update && apt-get install -y apache2 php php-curl php-gd php-ldap php-mbstring php-mcrypt php-mysql php-xml php-zip php-cli php-json curl unzip libapache2-mod-php locales
 
 ENV LANG="en_US.UTF8"
-ENV MYSQL_ROOT_PASSWORD="123456"
 RUN echo -e "LANG=\"en_US.UTF-8\"\nLANGUAGE=\"en_US:en\"" > /etc/default/locale && locale-gen en_US.UTF-8
 
 RUN mkdir -p /app/zentaopms
