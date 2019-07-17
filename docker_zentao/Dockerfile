@@ -1,4 +1,4 @@
-FROM mysql:5.7
+FROM ubuntu:16.0
 MAINTAINER yidong <yidong@cnezsoft.com>
 
 RUN apt-get update && apt-get install -y apache2 php php-curl php-gd php-ldap php-mbstring php-mcrypt php-mysql php-xml php-zip php-cli php-json curl unzip libapache2-mod-php locales
