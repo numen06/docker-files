@@ -1,5 +1,5 @@
 #!/bin/bash
-if   [$FRPC]; 
+if [$MODE = "client"]; 
 then 
 ./frpc -c ./frpc.ini
 else 
