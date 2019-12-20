@@ -7,7 +7,7 @@ RUN yum install openssh-server -y
 
 #修改root用户密码为root
 #用以下命令修改密码时，密码中最好不要包含特殊字符，如"!"，否则可能会失败；
-RUN /bin/echo "root" | passwd --stdin root
+RUN /bin/echo "root@123" | passwd --stdin root
 
 #生成密钥
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key \
