@@ -2,9 +2,11 @@
 FROM centos 
 MAINTAINER wesley.zhang
 
+# 安装基础服务
+RUN yum -y install vim unzip zip net-tools wget lrzsz passwd
 # 安装ssh服务
 RUN yum install openssh-server -y 
-RUN yum install passwd -y
+
 
 #修改root用户密码为root
 #用以下命令修改密码时，密码中最好不要包含特殊字符，如"!"，否则可能会失败；
