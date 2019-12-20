@@ -10,7 +10,7 @@ RUN yum install openssh-server -y
 #RUN yum install epel-release -y
 #RUN yum clean all
 #RUN yum install fuse-sshfs -y
-#RUN yum clean all
+RUN yum clean all
 
 #修改root用户密码为root
 #用以下命令修改密码时，密码中最好不要包含特殊字符，如"!"，否则可能会失败；
