@@ -9,7 +9,7 @@ RUN yum install openssh-server -y
 #安装远程挂载
 RUN yum install epel-release -y
 RUN yum clean all
-RUN yum install fuse-sshfs
+RUN yum install fuse-sshfs -y
 RUN yum clean all
 
 #修改root用户密码为root
