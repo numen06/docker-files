@@ -1,12 +1,16 @@
 # 可以改为 FROM centos
-FROM centos 
+FROM cento:7
 MAINTAINER wesley.zhang
 
 # 安装基础服务
 RUN yum -y install vim unzip zip net-tools wget lrzsz passwd
-# 安装ssh服务
+#安装ssh服务
 RUN yum install openssh-server -y 
-
+#安装远程挂载
+RUN yum install epel-release -y
+RUN yum clean all
+RUN yum install fuse-sshfs
+RUN yum clean all
 
 #修改root用户密码为root
 #用以下命令修改密码时，密码中最好不要包含特殊字符，如"!"，否则可能会失败；
