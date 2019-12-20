@@ -1,5 +1,5 @@
 # 可以改为 FROM centos
-FROM cento:7
+FROM centos:7
 MAINTAINER wesley.zhang
 
 # 安装基础服务
