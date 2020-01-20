@@ -15,3 +15,6 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+
+#升级jenkins
+wget http://ftp-chi.osuosl.org/pub/jenkins/war/2.215/jenkins.war  -O  /usr/share/jenkins/jenkins.war
