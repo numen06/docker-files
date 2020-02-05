@@ -18,11 +18,10 @@ WORKDIR /root/temp
 RUN wget --no-check-certificate https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz 
  
 #  解压安装包
-RUN tar xzvf Python-3.8.0.tgz  -C /usr/local/python3
+RUN tar xzvf Python-3.8.0.tgz
 
+RUN cd Python-3.8.0
 
-WORKDIR /usr/local/python3/Python-3.8.0
- 
 #  编译安装
 RUN ./conigure --prefix=/usr/local/python3
 RUN make && make install
