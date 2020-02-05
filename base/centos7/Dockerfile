@@ -24,7 +24,7 @@ RUN tar xzvf Python-3.8.0.tgz  -C /usr/local/python3
 WORKDIR Python-3.8.0
  
 #  编译安装
-RUN ./conigure --prefix=/usr/local/python3
+#RUN ./conigure --prefix=/usr/local/python3
 RUN make && make install
 RUN ln -s /usr/local/python3/bin/python3 /usr/bin/python3
 
