@@ -22,8 +22,8 @@ WORKDIR Python-3.8.0
  
 #  编译安装
 RUN ./conigure --prefix=/usr/local/python3
-RUN sudo make
-RUN sudo make install
+RUN make && make install
+RUN ln -s /usr/local/python3/bin/python3 /usr/bin/python3
 
 
 WORKDIR /
