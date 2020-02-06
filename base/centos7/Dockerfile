@@ -3,8 +3,8 @@ From centos:7
 MAINTAINER wesley.zhang<numen06@qq.com>
 
 #设置时区
-ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV TIME_ZONE Asia/Shanghai
+RUN ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
 
 #安装wget
 RUN yum -y install wget
