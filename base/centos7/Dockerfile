@@ -80,9 +80,21 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
-#安装openjdk
-ARG OPENJDK_VERSION=1.8.0
-RUN yum -y install java-${OPENJDK_VERSION}-openjdk java-${OPENJDK_VERSION}-openjdk-devel
+
+#安装git
+RUN yum -y install git
+
+#安装jdk
+ARG JDK_VERSION=1.8.0
+
+RUN yum install java-${JDK_VERSION}-openjdk  -y \
+&& yum install java-${JDK_VERSION}-openjdk-devel  -y \
+&& java -version \
+&& ls /usr/lib/jvm/
+
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk
+ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
+ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/lib:$CATALINA_HOME/bin
 
 
 #安装maven
@@ -101,8 +113,7 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
-#安装GIT
-RUN yum -y install git
+
 
 
 RUN yum clean all
