@@ -3,7 +3,7 @@ From registry.cn-hangzhou.aliyuncs.com/numen/base
 MAINTAINER wesley.zhang<numen06@qq.com>
 
 
-ENV NODE_VERSION=13.8.0
+ENV NODE_VERSION=0.8.28
 
 #RUN wget -O node.tar.gz "https://npm.taobao.org/mirrors/node/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
 #  && tar -xvf node.tar.gz  -C /usr/local/ \
@@ -12,12 +12,10 @@ ENV NODE_VERSION=13.8.0
 #  && ln -s /usr/local/node-v$NODE_VERSION-linux-x64/bin/npm /usr/local/bin \
 #  && node -v
 
-RUN curl -sL https://rpm.nodesource.com/setup_13.x | bash -
+RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum install -y nodejs
 RUN node -v
 RUN npm -v
-
-
 
 ENV YARN_VERSION 1.21.1
 
@@ -36,5 +34,6 @@ RUN npm config get registry
 RUN yum clean all
 
 RUN npm install -g npm
+
 
 WORKDIR /

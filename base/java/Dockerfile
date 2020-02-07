@@ -2,6 +2,7 @@ From centos:7
 
 MAINTAINER wesley.zhang<numen06@qq.com>
 
+
 #安装jdk
 ARG JDK_VERSION=1.8.0
 
@@ -30,8 +31,6 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
-
-
 
 
 RUN yum clean all
