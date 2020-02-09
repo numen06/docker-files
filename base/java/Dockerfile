@@ -1,4 +1,4 @@
-From centos:7
+From registry.cn-hangzhou.aliyuncs.com/numen/base
 
 MAINTAINER wesley.zhang<numen06@qq.com>
 
