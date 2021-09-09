@@ -4,4 +4,5 @@ wget -O frp_linux_amd64.tar.gz "https://github.com/fatedier/frp/releases/downloa
 tar -zxvf frp_linux_amd64.tar.gz
 mv -f frp_${version}_linux_arm64/* /frp/
 rm -rf frp_${version}_linux_arm64/
+rm -rf frp_linux_amd64.tar.gz
 chmod -R 777 /frp/
