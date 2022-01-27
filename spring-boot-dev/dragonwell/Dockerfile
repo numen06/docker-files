@@ -1,4 +1,4 @@
-FROM falconia/dragonwell8:centos
+FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:8
 VOLUME /tmp
 WORKDIR /root
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
