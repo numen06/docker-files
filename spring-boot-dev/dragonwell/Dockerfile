@@ -1,4 +1,6 @@
 FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:8
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 VOLUME /tmp
 WORKDIR /root
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
