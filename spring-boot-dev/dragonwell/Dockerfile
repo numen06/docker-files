@@ -1,4 +1,4 @@
-FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:8
+FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:8-anolis
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 VOLUME /tmp
